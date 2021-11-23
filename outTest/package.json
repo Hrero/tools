@@ -1,0 +1,12 @@
+{
+  "name": "tbjd",
+  "version": "1.0.0",
+  "description": "淘宝京东",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "mongodb": "^4.1.4"
+  },
+  "optionalDependencies": {},
+  "devDependencies": {}
+}
