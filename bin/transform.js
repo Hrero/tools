@@ -1,10 +1,28 @@
+const fs = require('fs');
+const { copy, isDirectory } = require('../lib/copy');
+const { error } = require('../lib/message')
+const { FILE_TYPE_ERROR, SOURCE_PATH_ERROR, OUTFILE_PATH_ERROR, COQY_FILE_ERROR } = require('../lib/errorCode');
+const pwd = process.env.PWD;
 /**
- * 转换入口导出一个函数，按照如下函数签名
- * @param {*} fileInfo 包含 source 和 path 属性。source为待转换文本，path为路径
- * @param {*} api 包含 gogocode 作为转换工具
- * @param {*} options 其他 option 由此传入
- * @returns {string} 返回转换后的代码
+ * 
+ * @param {name, tag, src, out} options 
  */
- module.exports = function(fileInfo, api, options) {
-  console.log('t');
+module.exports = async function(options) {
+  // 不传输出地址默认为当前文件夹
+  const { src, out = pwd } = options;
+  // 校验
+  if (!src) return error(SOURCE_PATH_ERROR)
+  if (!out) return error(OUTFILE_PATH_ERROR)
+  if (!await isDirectory(out)) return error(FILE_TYPE_ERROR)
+
+  // 拷贝文件main
+  copy(src, `${pwd}/outbound/main.js`, err => {
+    if (err) {
+        error(COQY_FILE_ERROR);
+    }
+  });
+
+  const routerString = 
+  console.log(out, src);
 };
+

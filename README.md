@@ -9,3 +9,12 @@ tbjd build
 ```
 tbjd autotable
 ```
+
+#### 模版变量
+```
+TABLENAME 
+NAME
+TAG
+API
+ROUTER
+```

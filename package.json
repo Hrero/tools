@@ -1,6 +1,6 @@
 {
   "name": "@tbjdi/tools",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "duiba-jd-tools",
   "main": "lib/index.js",
   "bin": {
@@ -10,6 +10,7 @@
     "type": "nodejs"
   },
   "scripts": {
+    "dev": "node /Users/haozengrun/jd_code/tools/bin/tbjd.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
@@ -21,9 +22,8 @@
   "devDependencies": {},
   "license": "ISC",
   "dependencies": {
-    "chalk": "^4.1.2",
     "commander": "^8.3.0",
-    "log-symbols": "^5.0.0",
+    "dt-utils-js": "0.0.5",
     "terminal-kit": "^2.2.2"
   }
 }
