@@ -18,7 +18,7 @@ async function connectToDatabase() {
   }
   try {
     const client = await MongoClient.connect(MONGODB_URI, config);
-    const db = await client.db(${TABLENAME});
+    const db = await client.db('i_TABLENAME');
     cachedDb = db;
     return db
   } catch (err) {
@@ -33,6 +33,6 @@ exports.initializer = async (context, callback) => {
 
 exports.handler = async (req, resp, context) => {
     console.log('项目已启动' + dateFormat(new Date(), 'yyyy-MM-dd hh:mm:ss'));
-    ${ROUTER}
+    i_ROUTER
     resp.send(JSON.stringify({}, null, '    '));
 }

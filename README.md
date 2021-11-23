@@ -12,9 +12,9 @@ tbjd autotable
 
 #### 模版变量
 ```
-TABLENAME 
-NAME
-TAG
-API
-ROUTER
+TABLENAME 数据库名
+NAME 项目名
+TAG b/s
+API 接口
+ROUTER 映射地址
 ```
