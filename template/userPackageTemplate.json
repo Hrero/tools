@@ -1,0 +1,11 @@
+{
+  "name": "jd-temporary",
+  "version": "1.0.0",
+  "description": "临时package文件, 没有就创建，使用后删除",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,6 +1,6 @@
 {
   "name": "@tbjdi/tools",
-  "version": "1.0.6",
+  "version": "1.0.34",
   "description": "duiba-jd-tools",
   "main": "lib/index.js",
   "bin": {
@@ -16,6 +16,9 @@
   "files": [
     "lib",
     "bin",
+    "outTest",
+    "outbound",
+    "template",
     "package.json"
   ],
   "author": "zengrun",

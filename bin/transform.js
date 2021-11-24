@@ -4,9 +4,9 @@ const { error } = require('../lib/message')
 const { FILE_TYPE_ERROR, SOURCE_PATH_ERROR, OUTFILE_PATH_ERROR, COQY_FILE_ERROR, SYSTEM_ERROR, CREATE_FILE_ERROR } = require('../lib/errorCode');
 const { createFiles } = require('../lib/doProduce')
 
-const pwd = process.env.PWD;
-const MAIN_OUTBOUND_URL = `${pwd}/outbound/main.js`;
-const CREATE_OUTBOUND_URL = `${pwd}/outbound/`;
+const outbound = process.env.HOME || process.env.USERPROFILE;
+const MAIN_OUTBOUND_URL = `${outbound}/outbound/main.js`;
+const CREATE_OUTBOUND_URL = `${outbound}/outbound/`;
 
 /**
  * 
@@ -21,14 +21,13 @@ module.exports = async function(options) {
   if (!name) return error(PROJECT_NAME_ERROR)
   if (!tag) return error(PROJECT_TYPE_ERROR)
   if (!await isDirectory(out)) return error(FILE_TYPE_ERROR)
-
   // 拷贝文件main b端需要重新修改
-  copy(src, MAIN_OUTBOUND_URL, err => {
-    if (err) return error(COQY_FILE_ERROR)
+  copy(src, MAIN_OUTBOUND_URL, async err => {
+    if (err) return error(err)
     // 模版替换
-    if (!doTemplate({ name, tag, tablename: name, src })) return error(SYSTEM_ERROR)
+    if (!await doTemplate({ name, tag, tablename: name, src })) return error(SYSTEM_ERROR)
     // 输出新地址
-    if(!createFiles({src: CREATE_OUTBOUND_URL, out})) return error(CREATE_FILE_ERROR)
+    if (!await createFiles({src: CREATE_OUTBOUND_URL, out})) return error(CREATE_FILE_ERROR)
   });
 };
 
