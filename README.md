@@ -18,3 +18,27 @@ TAG b/s
 API 接口
 ROUTER 映射地址
 ```
+
+#### 本地命令
+```
+node ./bin/tbjd.js init   \
+-s /Users/haozengrun/jd_code/bcj-s/main.js  \
+-o /Users/haozengrun/jd_code/tools/outTest  \
+-n bcj \
+-t s 
+
+
+node ./bin/tbjd.js init   \
+-s /Users/haozengrun/jd_code/bcj-s/main.js  \
+-o /Users/haozengrun/jd_code/jd-bcj  \
+-n bcj \
+-t s 
+
+
+tbjd init   \
+-s /Users/haozengrun/jd_code/bcj-s/main.js  \
+-o /Users/haozengrun/jd_code/jd-bcj  \
+-n bcj \
+-t s 
+
+```

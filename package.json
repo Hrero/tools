@@ -1,6 +1,6 @@
 {
   "name": "@tbjdi/tools",
-  "version": "1.0.34",
+  "version": "1.0.45",
   "description": "duiba-jd-tools",
   "main": "lib/index.js",
   "bin": {
@@ -27,6 +27,7 @@
   "dependencies": {
     "commander": "^8.3.0",
     "dt-utils-js": "0.0.5",
+    "request": "^2.88.2",
     "terminal-kit": "^2.2.2"
   }
 }

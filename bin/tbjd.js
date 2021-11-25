@@ -1,29 +1,35 @@
 #!/usr/bin/env node
 const program = require('commander');
-//插件加载及执行逻辑
-const transform = require('./transform');
 //初始化插件项目逻辑
 const init = require('./init');
+const table = require('./table');
 const pkg = require('../package.json');
 const { info } = require('../lib/message');
 
-program
-  .command('init')
-  .description('初始化一个插件项目')
-  .action((name) => {
-    init(name);
-  })
 
 // 配置options
 program
-  .command('transform')
+  .command('init')
+  .description('初始化一个京东小项目')
   .option('-n, --name <name>', '项目名')
   .option('-t, --tag <s/b>', 's/b端')
   .option('-o, --out <path>', '输出文件路径')
   .option('-s, --src <path>', '需要转换的源文件路径')
   .action((options) => {
-      return transform(options);
+      return init(options);
   });
+
+// 配置options
+program
+  .command('table')
+  .description('自动建京东小项目库表')
+  .option('-n, --database <database>', '库名')
+  .option('-k, --key <key>', '验证key')
+  .option('-s, --secret <secret>', '验证密钥')
+  .action((options) => {
+      return table(options);
+  });
+
 
 // 配置 cli 信息，版本、cli说明等
 program
