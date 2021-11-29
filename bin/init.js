@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { copy, isDirectory, doTemplate } = require('../lib/copyUtils');
 const { error, success } = require('../lib/message')
-const { FILE_TYPE_ERROR, SOURCE_PATH_ERROR, OUTFILE_PATH_ERROR, COQY_FILE_ERROR, SYSTEM_ERROR, CREATE_FILE_ERROR } = require('../lib/errorCode');
+const { FILE_TYPE_ERROR, SOURCE_PATH_ERROR, OUTFILE_PATH_ERROR, PROJECT_NAME_ERROR, PROJECT_TYPE_ERROR, SYSTEM_ERROR, CREATE_FILE_ERROR } = require('../lib/errorCode');
 const { createFiles } = require('../lib/doProduce')
 
 const { MAIN_OUTBOUND_URL, CREATE_OUTBOUND_URL } = require('../lib/finalUrl');

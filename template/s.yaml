@@ -2,7 +2,7 @@ edition: 1.0.0 # 命令行YAML规范版本，遵循语义化版本（Semantic Ve
 name: i_NAME #  项目名称
 access: 云服 #  秘钥别名
 services:
-  fc-deploy:
+  i_NAME-service:
     component: devsapp/fc # 组件名称
     props:
       region: cn-hangzhou
@@ -42,11 +42,13 @@ services:
             methods:
               - GET
       customDomains:
-        - domainName: auto
-          protocol: HTTP
+        - domainName: duiba.haozengrun.com
+          protocol: HTTP,HTTPS
           routeConfigs:
-            - path: /*
-              methods:
-                - GET
+            - path: /i_NAME/i_TAG/*
+              serviceName: i_NAME-service
+              functionName: i_NAME-i_TAG
+              qualifier: LATEST
+
 
 # 函数计算FC组件文档参考地址：https://github.com/devsapp/fc
