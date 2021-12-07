@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="requirejs" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="Node.js Core Modules" />
+    </properties>
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/require.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

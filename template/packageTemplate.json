@@ -5,7 +5,9 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "mongodb": "^4.1.4"
+    "mongodb": "^4.1.4",
+    "dt-utils-js": "^0.0.5",
+    "tslib": "^2.0.0"
   },
   "optionalDependencies": {},
   "devDependencies": {}

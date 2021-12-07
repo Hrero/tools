@@ -1,7 +1,10 @@
-if (req.path == '/i_NAME/i_TAG/i_API') {
-    try {
-        resp.send(JSON.stringify(await fns['i_API']()));
-    } catch(err) {
-        console.info(err, '----调用失败-----');
-    }
+if (api == 'i_API') {
+    resp.send(JSON.stringify(await fns['i_API']({
+        platform: 'jd', // 不传默认淘宝
+        openId,
+        cloud: { db: cachedDb },
+        data: formBody,
+        fcName: 'i_NAME',
+        handler: 'i_API'
+    })));
 }

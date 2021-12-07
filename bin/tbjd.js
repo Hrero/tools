@@ -13,6 +13,7 @@ program
   .description('初始化一个京东小项目')
   .option('-n, --name <name>', '项目名')
   .option('-t, --tag <s/b>', 's/b端')
+  .option('-e, --env <test/online>', '环境')
   .option('-o, --out <path>', '输出文件路径')
   .option('-s, --src <path>', '需要转换的源文件路径')
   .action((options) => {
@@ -26,6 +27,7 @@ program
   .option('-n, --database <database>', '库名')
   .option('-k, --key <key>', '验证key')
   .option('-s, --secret <secret>', '验证密钥')
+  .option('-e, --env <test/online>', '环境')
   .action((options) => {
       return table(options);
   });

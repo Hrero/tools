@@ -2,13 +2,13 @@ edition: 1.0.0 # 命令行YAML规范版本，遵循语义化版本（Semantic Ve
 name: i_NAME #  项目名称
 access: 云服 #  秘钥别名
 services:
-  i_NAME-service:
+  i_NAME-i_ENV-service:
     component: devsapp/fc # 组件名称
     props:
       region: cn-hangzhou
       service:
-        name: i_NAME-service
-        description: 京东i_NAME
+        name: i_NAME-i_ENV-service
+        description: 京东i_NAME-i_ENV-service
         internetAccess: true
         vpcConfig:
           vpcId: vpc-bp12qscs4aq6kvi3ztxyq # 数据库实例所在的VPC ID。
@@ -23,7 +23,7 @@ services:
           logstore: hangzhou-duiba
       function:
         name: i_NAME-i_TAG
-        description: 测试压缩包大小s
+        description: 京东i_NAME-i_ENV-service-i_TAG
         runtime: nodejs12
         codeUri: ./
         handler: index.handler
@@ -31,9 +31,6 @@ services:
         timeout: 60
         initializer: index.initializer
         instanceConcurrency: 1
-        environmentVariables:
-          MONGO_DATABASE: i_TABLENAME # 数据库名称。
-          MONGO_URL: mongodb://root:8IuKSBHqeDAW3yib@dds-bp110dc7978f97741667-pub.mongodb.rds.aliyuncs.com:3717 # 数据库接入点。
       triggers:
         - name: httpTrigger
           type: http
@@ -41,14 +38,21 @@ services:
             authType: anonymous
             methods:
               - GET
+              - POST
       customDomains:
-        - domainName: duiba.haozengrun.com
-          protocol: HTTP,HTTPS
+        - domainName: duibai_ENV.haozengrun.com
+          protocol: HTTP
           routeConfigs:
-            - path: /i_NAME/i_TAG/*
-              serviceName: i_NAME-service
-              functionName: i_NAME-i_TAG
+            - path: /i_NAME/s/*
+              serviceName: i_NAME-i_ENV-service
+              functionName: i_NAME-s
               qualifier: LATEST
+            - path: /i_NAME/b/*
+              serviceName: i_NAME-i_ENV-service
+              functionName: i_NAME-b
+              qualifier: LATEST
+              
 
 
 # 函数计算FC组件文档参考地址：https://github.com/devsapp/fc
+
